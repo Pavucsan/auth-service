@@ -16,12 +16,12 @@ public class UserConfiguration extends GlobalAuthenticationConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("admin")
                 .password(passwordEncoder.encode("1234"))
-                .roles("ADMIN", "USER")
-                .authorities("READ", "WRITE")
+                .roles("ADMIN")
+                .authorities("ADMIN_READ", "ADMIN_WRITE", "ADMIN_DELETE")
                 .and()
                 .withUser("pavucs")
                 .password(passwordEncoder.encode("1234"))
                 .roles("USER")
-                .authorities("READ", "WRITE");
+                .authorities("USER_READ", "USER_WRITE");
     }
 }
